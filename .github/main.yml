@@ -1,0 +1,15 @@
+name: Load tetsing workflow
+on: [push, workflow_dispatch]
+
+jobs:
+  test:
+    name: Run Load testing script
+    runs-on: ubuntu-latest
+    steps:
+      name: Checkout
+      users: actions/checkout@v2
+      name: Run k6 local test
+      users: k6io/action@v0.1
+      with:
+        filename: LoadTest.ts
+        flags: #add visualitation tool here as ex. --out influxdb=http://63ea806973a6.ngrok.io
