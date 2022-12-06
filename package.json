@@ -19,10 +19,9 @@
   "homepage": "https://github.com/Silvena/pure-k6-test-repo#readme",
   "dependencies": {
     "@types/k6": "^0.25.1",
-    "@types/node": "^13.7.1"
+    "@types/node": "^13.13.52"
   },
   "devDependencies": {
-    "typescript": "^4.9.3",
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
@@ -35,6 +34,7 @@
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-prettier": "^3.1.2",
     "prettier": "^1.19.1",
+    "typescript": "^4.9.3",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11"
   }
