@@ -36,9 +36,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Checkout
-      users: actions/checkout@v2
+      uses: actions/checkout@v2
     - name: Run k6 local test
-      users: k6io/action@v0.1
+      uses: k6io/action@v0.1
       with:
         filename: LoadTest.ts
     # Runs a single command using the runners shell
