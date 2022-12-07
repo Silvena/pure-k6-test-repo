@@ -4,14 +4,10 @@ import { check, group, sleep, fail } from 'k6';
 export const options = {
   stages: [{ target: 17, duration: '10s' }],
   thresholds: {
-    
-   // http_req_duration: ["avg < 10000"],
-  //  http_req_blocked: ["avg < 2000"],
-   // "ramping_vus_scenario": {},
-    //ramping_vus_scenario: {'0s': '2s'}
-    
-    //'http_req_duration {name:Create crocs}': ['avg<400', 'max<2000'],
-    //'http_req_duration{name:Update crocs}': ['avg<200', 'max<1000']
+    http_req_duration: ["avg < 10000"],
+    http_req_blocked: ["avg < 2000"],
+    ramping_vus_scenario: {'0s': '2s'},
+   // http_req_duration 'Create crocs': ['avg<400', 'max<2000'],
   }
 };
 
@@ -73,9 +69,9 @@ export default (authToken) => {
     const ages = Object.values(responses).map((res) => res.json('age'));
 
     // Functional test: check that all the public crocodiles are older than 5
-  /*  check(ages, {
+    check(ages, {
       'Crocs are older than 5 years of age': Math.min(...ages) > 5,
-    });*/
+    });
   });
   // Create and modify crocs
   group('Create and modify crocs', () => {
