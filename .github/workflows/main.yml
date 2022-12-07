@@ -5,7 +5,13 @@ name: Manual workflow
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-  push:
+   push:
+    branches:
+    - main
+  pull_request:
+    branches:
+    - main
+    - 'feature/**'
 
   # Inputs the workflow accepts.
     inputs:
@@ -29,9 +35,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet: The test is runnig and the result is...
-    # The type of runner that the job will run on
+  k6_transpile_bundle_test:
+    name: Transpile, bundle and run
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
