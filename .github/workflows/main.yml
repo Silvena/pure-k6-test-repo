@@ -32,7 +32,7 @@ on:
 jobs:
   k6_transpile_bundle_test:
     name: Transpile, bundle and run
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Checkout
