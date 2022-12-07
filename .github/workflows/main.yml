@@ -41,7 +41,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Run local k6 test
-        uses: grafana/k6-action@v0.2.0
+      uses: grafana/k6-action@v0.2.0
       with:
         filename: StressTest.ts
     # Runs a single command using the runners shell
