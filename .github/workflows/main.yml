@@ -4,10 +4,7 @@ name: Manual workflow
 on:
   push:
     # Sequence of patterns matched against refs/heads
-    branches:    
-      - main
-      - 'mona/octocat'
-      - 'releases/**'
+    branches:  ["main", "feature/**"]
     # Sequence of patterns matched against refs/tags
     tags:        
       - v2
@@ -35,15 +32,17 @@ on:
 jobs:
   k6_transpile_bundle_test:
     name: Transpile, bundle and run
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+      with:
+       fetch-depth: 0
     - name: Run local k6 test
       uses: grafana/k6-action@v0.2.0
       with:
-        filename: \src\tests\StressTest.ts
+        filename: /src/tests/StressTest.ts
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
