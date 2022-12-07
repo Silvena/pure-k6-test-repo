@@ -2,13 +2,16 @@ name: Manual workflow
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
 on:
-   push:
-    branches:
-    - main
-  pull_request:
-    branches:
-    - main
-    - 'feature/**'
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
+      - 'mona/octocat'
+      - 'releases/**'
+    # Sequence of patterns matched against refs/tags
+    tags:        
+      - v2
+      - v1.*
   # Inputs the workflow accepts.
     inputs:
       name:
