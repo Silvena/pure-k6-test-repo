@@ -42,7 +42,7 @@ jobs:
     - name: Run local k6 test
       uses: grafana/k6-action@v0.2.0
       with:
-        filename: /src/tests/StressTest.ts
+        filename: dist/StressTest.ts
     # Runs a single command using the runners shell
     - name: Send greeting
       run: echo "Hello ${{ github.event.inputs.name }}"
