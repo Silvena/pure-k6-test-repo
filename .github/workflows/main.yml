@@ -6,10 +6,9 @@ name: Manual workflow
 # or API.
 on:
   push:
-   branches: [
-    - main
-    - feature/
-    - realise/
+    branches: [
+      - main
+      - 'feature/'
     ]
 
   # Inputs the workflow accepts.
