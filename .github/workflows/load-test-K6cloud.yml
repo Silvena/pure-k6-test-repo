@@ -1,0 +1,14 @@
+name: k6 Load Test
+run-name: ${{ github.actor }} k6 Cloud Load Test
+on: []
+jobs:
+ check-bats-version:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v1
+    - name: Run k6 cloud test
+    - uses: k6io/action@v0.1
+      with:
+        filename: src/tests/LoadTest.ts
+        cloud: true
+        token: ${{ secret.K6_CLOUD_API_TOKEN }}
