@@ -1,12 +1,14 @@
-k6_load_test:
-  name: k6 Load Test
+name: k6 Load Test
+run-name: ${{ github.actor }} k6 Load Test
+on: [push]
+jobs:
+ check-bats-version:
   runs-on: ubuntu-latest
-
   steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-
-    - name: Run local k6 test
-      uses: grafana/k6-action@v0.2.0
+    - uses: actions/checkout@v1
+    - uses: grafana/k6-action@v0.2.0
       with:
-        filename: simpleTest.js
+        filename: src/simpleTest.js
+        
+    - run: npm install -g bats
+    - run: bats -v
