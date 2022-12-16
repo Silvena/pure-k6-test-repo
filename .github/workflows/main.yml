@@ -38,7 +38,7 @@
       - name: Run local k6 test
       - uses: grafana/k6-action@v0.2.0
         with:
-          filename: src/simpleTest.js
+          filename: src/tests/simpleTest.js
       # Runs a single command using the runners shell
       - name: Send greeting
       - run: echo "Hello ${{ github.event.inputs.name }}"

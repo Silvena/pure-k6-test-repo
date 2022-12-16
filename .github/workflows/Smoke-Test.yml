@@ -1,5 +1,5 @@
 name: k6 SMOKE Test
-run-name: ${{ github.actor }} k6 Load Test
+run-name: ${{ github.actor }} k6 SMOKE Test
 on: [push]
 jobs:
  check-bats-version:
@@ -8,7 +8,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: grafana/k6-action@v0.2.0
       with:
-        filename: src/SmokeTest.js
+        filename: src/tests/SmokeTest.js
         
     - run: npm install -g bats
     - run: bats -v
